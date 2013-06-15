@@ -6,41 +6,40 @@ public class Cell {
 
 	boolean isAlive = false;
 	boolean nextState = false;
-	ArrayList<Cell> neighboors;
-
-	public Cell(int r, int c, Cell[][] grid) {
-		neighboors = new ArrayList<Cell>();
+	ArrayList<int[]> neighboors;
+	
+	public void setNeighboors( int r, int c, Cell[][] grid ) {
+		neighboors = new ArrayList<int[]>();
 		for (int ro = -1; ro < 2; ro++) {
 			for (int co = -1; co < 2; co++) {
-				try {
-					neighboors.add(grid[r + ro][c + co]);
-				} catch (IndexOutOfBoundsException e) {
-				}
+				//TODO check index!!
+				//if ( r+ro >= 0 && r+ro)
+				neighboors.add( new int[]{ r+ro, c+co } );
 			}
 		}
 		neighboors.remove(grid[r][c]);
 	}
+	
 
-	public void prepare() {
+	public void prepare( Cell[][] grid ) {
 		int n = 0;
 		for (int i = 0; i < neighboors.size(); i++) {
-			if (neighboors.get(i).isAlive)
-				n++;
+			if ( neighboors.get(i).isAlive ) n++;
 		}
 
-		if (this.isAlive) {
-			if (n == 2 || n == 3) {
-				nextState = true;
-			} else {
-				nextState = false;
-			}
+		nextState = false;
+		if ( isAlive ) {
+			if ( n == 2 || n == 3 ) nextState = true;
 		} else {
-			if (n == 3)
-				nextState = true;
+			if ( n == 3 ) nextState = true; 
 		}
 	}
-
 	public void update() {
 		isAlive = nextState;
+	}
+	
+	public String toString() {
+		if ( isAlive ) return "X"; 
+		else return "O";
 	}
 }

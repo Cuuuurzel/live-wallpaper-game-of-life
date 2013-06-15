@@ -1,0 +1,19 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import java.util.ArrayList;
+
+public class GameOfLife {
+
+	ArrayList< ArrayList<Cell> > grid;
+	
+	public GameOfLife( int rows, int cols ) {
+		grid = new ArrayList< ArrayList<Cell> >();
+		for ( int r=0; r<rows; r++ ) {
+			ArrayList<Cell> row = new ArrayList<Cell>();
+			for ( int c=0; c<cols; c++ ) {
+				row.add( Cell( r, c ) );
+			}
+			grid.add( row );			
+		}
+	} 
+}

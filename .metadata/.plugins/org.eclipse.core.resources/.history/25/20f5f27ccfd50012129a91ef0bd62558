@@ -1,0 +1,11 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import java.util.ArrayList;
+
+public class GameOfLife {
+
+	ArrayList< ArrayList<Cell> > grid;
+	public GameOfLife( int rows, int cols ) {
+				
+	} 
+}

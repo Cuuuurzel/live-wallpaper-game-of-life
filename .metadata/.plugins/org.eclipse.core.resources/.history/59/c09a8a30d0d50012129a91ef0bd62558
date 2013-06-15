@@ -1,0 +1,11 @@
+package com.cuuuurzel.gollivewallpaper;
+
+public class GameOfLife {
+
+	Cell[][] grid;
+	
+	public GameOfLife( int rows, int cols ) {
+		grid = new Cell[rows][cols];
+		System.out.println( grid[0][0] );
+	} 
+}

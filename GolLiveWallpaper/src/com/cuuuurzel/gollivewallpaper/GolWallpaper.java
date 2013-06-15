@@ -1,20 +1,20 @@
 package com.cuuuurzel.gollivewallpaper;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.Paint.Style;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.service.wallpaper.WallpaperService;
-import android.service.wallpaper.WallpaperService.Engine;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 public class GolWallpaper extends WallpaperService {
 
 	private final Handler mHandler = new Handler();
-
+	int sw, sh;
+	
 	@Override
 	public Engine onCreateEngine() {
 		return new GolEngine();
@@ -23,28 +23,24 @@ public class GolWallpaper extends WallpaperService {
 	class GolEngine extends Engine {
 
 		private final Paint mPaint = new Paint();
-		private float mOffset;
 		private float mTouchX = -1;
 		private float mTouchY = -1;
 		private long mStartTime;
-		private float mCenterX;
-		private float mCenterY;
+		private GameOfLife game;
 
 		private final Runnable mSampleDraw = new Runnable() {
 			public void run() {
 				drawFrame();
 			}
 		};
+
 		private boolean mVisible;
 
-		GolEngine() {
+		public GolEngine() {
 			final Paint paint = mPaint;
-			paint.setColor(0xffff00ff);
-			paint.setAntiAlias(true);
-			paint.setStrokeWidth(15);
-			paint.setStrokeCap(Paint.Cap.ROUND);
-			paint.setStyle(Paint.Style.STROKE);
+			paint.setColor( Color.WHITE );
 
+			game = new GameOfLife( 20, 20 );
 			mStartTime = SystemClock.elapsedRealtime();
 		}
 
@@ -73,11 +69,8 @@ public class GolWallpaper extends WallpaperService {
 		}
 
 		@Override
-		public void onSurfaceChanged(SurfaceHolder holder, int format,
-				int width, int height) {
+		public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 			super.onSurfaceChanged(holder, format, width, height);
-			mCenterX = width / 2.0f;
-			mCenterY = height / 2.0f;
 			drawFrame();
 		}
 
@@ -94,9 +87,8 @@ public class GolWallpaper extends WallpaperService {
 		}
 
 		@Override
-		public void onOffsetsChanged(float xOffset, float yOffset, float xStep,
-				float yStep, int xPixels, int yPixels) {
-			mOffset = xOffset;
+		public void onOffsetsChanged( float xOffset, float yOffset, float xStep, 
+				                       float yStep, int xPixels, int yPixels) {
 			drawFrame();
 		}
 
@@ -106,14 +98,9 @@ public class GolWallpaper extends WallpaperService {
 		 */
 		@Override
 		public void onTouchEvent(MotionEvent event) {
-			if (event.getAction() == MotionEvent.ACTION_MOVE) {
-				mTouchX = event.getX();
-				mTouchY = event.getY();
-			} else {
-				mTouchX = -1;
-				mTouchY = -1;
-			}
 			super.onTouchEvent(event);
+			mTouchX = event.getX();
+			mTouchY = event.getY();
 		}
 
 		/*
@@ -128,8 +115,7 @@ public class GolWallpaper extends WallpaperService {
 			try {
 				c = holder.lockCanvas();
 				if (c != null) {
-					// draw something
-					sampleDraw(c);
+					drawGrid(c);
 				}
 			} finally {
 				if (c != null)
@@ -139,16 +125,61 @@ public class GolWallpaper extends WallpaperService {
 			// Reschedule the next redraw
 			mHandler.removeCallbacks(mSampleDraw);
 			if (mVisible) {
-				mHandler.postDelayed(mSampleDraw, 1000 / 25);
+				mHandler.postDelayed(mSampleDraw, 2000);
 			}
 		}
 
-		void sampleDraw(Canvas c) {
-			c.save();
-			c.translate(mCenterX, mCenterY);
-			c.drawColor(0xff000000);
-			c.drawCircle(50, 50, 20, mPaint);
-			c.restore();
+		void drawGrid( Canvas cnv ) {		
+			System.out.println( game );	
+			
+			float d = cnv.getHeight() / game.grid.length;			
+			for (int r=0; r<game.grid.length+1; r++) {
+				cnv.drawLine( 0, d*r, cnv.getWidth(), d*r, mPaint );
+			}
+			
+			for (int c=0; c<game.grid[0].length+1; c++) {
+				cnv.drawLine( d*c, 0, d*c, cnv.getHeight(), mPaint );
+			}
+			
+			mPaint.setStyle( Style.FILL_AND_STROKE );
+			for (int r=0; r<game.grid.length; r++) {
+				for (int c=0; c<game.grid[0].length; c++) {
+					if ( game.grid[r][c].isAlive ) {
+						cnv.drawRect( d*c, d*r, d*(c+1), d*(r+1), mPaint );
+					}
+				}
+			}
+			mPaint.setStyle( Style.STROKE );
+			game.update();
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
