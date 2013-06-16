@@ -654,3 +654,13 @@ org.eclipse.core.internal.resources.ResourceException: Resource is out of sync w
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
 !SUBENTRY 1 org.eclipse.core.resources 4 274 2013-06-15 17:07:50.751
 !MESSAGE Resource is out of sync with the file system: '/GolLiveWallpaper/res/drawable/glider.png'.
+!SESSION 2013-06-16 11:18:20.170 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.6.0_27
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-06-16 11:18:25.150
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

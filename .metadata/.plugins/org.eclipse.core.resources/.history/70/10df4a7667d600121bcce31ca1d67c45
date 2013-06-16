@@ -40,7 +40,7 @@ public class GolWallpaper extends WallpaperService {
 			final Paint paint = mPaint;
 			paint.setColor( Color.WHITE );
 
-			game = new GameOfLife( 10, 10 );
+			game = new GameOfLife( 5, 5 );
 			mStartTime = SystemClock.elapsedRealtime();
 		}
 
@@ -130,8 +130,7 @@ public class GolWallpaper extends WallpaperService {
 		}
 
 		void drawGrid( Canvas cnv ) {		
-			System.out.println( game );	
-			cnv.drawColor( Color.BLACK );
+			//System.out.println( game );	
 			
 			float d = cnv.getHeight() / game.grid.length;			
 			for (int r=0; r<game.grid.length+1; r++) {

@@ -7,7 +7,6 @@ public class Cell {
 	boolean isAlive = false;
 	boolean nextState = false;
 	ArrayList<Cell> neighboors;
-	int r, c;
 	
 	public void setNeighboors( int r, int c, Cell[][] grid ) {
 		neighboors = new ArrayList<Cell>();
@@ -18,9 +17,7 @@ public class Cell {
 				} catch ( IndexOutOfBoundsException e ) {}
 			}
 		}
-		neighboors.remove( grid[r][c] );
-		this.r = r;
-		this.c = c;
+		neighboors.remove(grid[r][c]);
 	}
 	
 
