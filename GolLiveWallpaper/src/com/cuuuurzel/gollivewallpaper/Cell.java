@@ -10,12 +10,21 @@ public class Cell {
 	int r, c;
 	
 	public void setNeighboors( int r, int c, Cell[][] grid ) {
+		int tr, tc;
 		neighboors = new ArrayList<Cell>();
 		for (int ro = -1; ro < 2; ro++) {
 			for (int co = -1; co < 2; co++) {
 				try {
 					neighboors.add( grid[r+ro][c+co] );
-				} catch ( IndexOutOfBoundsException e ) {}
+				} catch ( IndexOutOfBoundsException e ) {
+					tr = r + ro;
+					tc = c + co;
+					if ( r+ro == -1 ) tr = grid.length-1;
+					if ( c+co == -1 ) tc = grid[0].length-1;
+					if ( r+ro == grid.length ) tr = 0;
+					if ( c+co == grid[0].length ) tc = 0;
+					neighboors.add( grid[tr][tc] );					
+				}
 			}
 		}
 		neighboors.remove( grid[r][c] );
@@ -43,6 +52,6 @@ public class Cell {
 	
 	public String toString() {
 		if ( isAlive ) return "X"; 
-		else return "O";
+		else return "_";
 	}
 }

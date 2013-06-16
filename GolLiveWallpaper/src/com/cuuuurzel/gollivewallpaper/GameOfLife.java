@@ -47,7 +47,7 @@ public class GameOfLife {
 	}
 	
 	public String toString() {
-		String s = "GAME OF LIFE STATE : \n";
+		String s = "GAME STATE : \n";
 		String sr;
 		for ( int r=0; r<grid.length; r++ ) {
 			sr = "| ";
