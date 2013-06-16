@@ -26,7 +26,9 @@ public class GolWallpaper extends WallpaperService {
 		private final Paint mPaint = new Paint();
 		private long mStartTime;
 		private GameOfLife game;
-
+		private boolean gamePause = false;
+		private DummyWidget btnPause;
+		
 		private final Runnable mSampleDraw = new Runnable() {
 			public void run() {
 				drawFrame();
@@ -36,15 +38,13 @@ public class GolWallpaper extends WallpaperService {
 		private boolean mVisible;
 
 		public GolEngine() {
-			// final Paint paint = mPaint;
-			this.initGame();
-			mStartTime = SystemClock.elapsedRealtime();
-		}
-
-		private void initGame() {
+			mPaint.setStyle( Style.FILL_AND_STROKE );
 			DisplayMetrics metrics = getBaseContext().getResources().getDisplayMetrics();
 			float r = metrics.heightPixels / Float.valueOf( metrics.widthPixels );
-			game = new GameOfLife( (int) (15*r), 15 );
+			game = new GameOfLife( (int) (12*r), 12 );
+			btnPause = new DummyWidget( 7*metrics.widthPixels/8, metrics.heightPixels/8, 
+					                    metrics.widthPixels/8,   metrics.heightPixels/8 );
+			mStartTime = SystemClock.elapsedRealtime();
 		}
 
 		@Override
@@ -102,10 +102,14 @@ public class GolWallpaper extends WallpaperService {
 		@Override
 		public void onTouchEvent( MotionEvent event ) {
 			if ( event.getAction() == MotionEvent.ACTION_DOWN ) {
-				DisplayMetrics metrics = getBaseContext().getResources().getDisplayMetrics();
+				if ( gamePause ) {
+					if ( btnPause.collide( event.getX(), event.getY() ) );
+				}
+				/*DisplayMetrics metrics = getBaseContext().getResources().getDisplayMetrics();
 				int r = (int) ( ( event.getY() / metrics.heightPixels ) * game.grid.length );
 				int c = (int) ( ( event.getX() / metrics.widthPixels ) * game.grid[0].length );
-				game.grid[r][c].nextState = !game.grid[r][c].isAlive;
+				game.grid[r][c].isAlive = !game.grid[r][c].isAlive;				
+				drawFrame();*/
 			}
 			super.onTouchEvent( event );
 		}
@@ -122,7 +126,7 @@ public class GolWallpaper extends WallpaperService {
 			try {
 				c = holder.lockCanvas();
 				if (c != null) {
-					realDraw(c);
+					realDraw( c );
 				}
 			} finally {
 				if (c != null)
@@ -145,22 +149,11 @@ public class GolWallpaper extends WallpaperService {
 				cnv.rotate( 90 );
 				cnv.translate( 0, -w );
 				float t=w; w=h; h=t;
-			}
+			}			
 			
 			float d = h / game.grid.length;
-			/*
-			mPaint.setStyle( Style.STROKE );
-			mPaint.setColor( 0x88FFFFFF );
-			for (int r=0; r<game.grid.length+1; r++) {
-				cnv.drawLine( 0, d*r, w, d*r, mPaint );
-			}
 
-			for (int c=0; c<game.grid[0].length+1; c++) {
-				cnv.drawLine( d*c, 0, d*c, h, mPaint );
-			}
-*/
 			cnv.drawColor( Color.BLACK );
-			mPaint.setStyle(Style.FILL);
 			mPaint.setColor(0xFFFFFFFF);
 			for (int r = 0; r < game.grid.length; r++) {
 				for (int c = 0; c < game.grid[0].length; c++) {
@@ -169,8 +162,19 @@ public class GolWallpaper extends WallpaperService {
 					}
 				}
 			}
-			game.update();
+			if ( !gamePause ) game.update();
 			cnv.restore();
+		}
+		
+		void drawGrid( float d, float w, float h, Canvas cnv ) {
+			mPaint.setColor( 0x88FFFFFF );
+			for (int r=0; r<game.grid.length+1; r++) {
+				cnv.drawLine( 0, d*r, w, d*r, mPaint );
+			}
+
+			for (int c=0; c<game.grid[0].length+1; c++) {
+				cnv.drawLine( d*c, 0, d*c, h, mPaint );
+			}
 		}
 	}
 }
