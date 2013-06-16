@@ -1,0 +1,10 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.content.Context;
+import android.view.View;
+
+
+public class GolSwitcherGrid extends View {
+
+	
+}

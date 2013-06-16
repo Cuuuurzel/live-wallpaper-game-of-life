@@ -1,0 +1,17 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.widget.Button;
+
+public class GolSettings extends PreferenceActivity {
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView( R.layout.settings );
+    }
+
+    public void incSize( View v ) {}
+    public void decSize( View v ) {}
+}

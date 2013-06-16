@@ -7,15 +7,17 @@ public class GameOfLife {
 	public GameOfLife( int rows, int cols ) {
 		grid = new Cell[rows][cols];
 		this.initGrid( rows, cols );
-		loadGlider();
+		try {
+			loadGlider();
+		} catch ( IndexOutOfBoundsException e ) {}
 	}
 	
-	private void loadGlider() {
+	private void loadGlider() {		
+		grid[0][1].isAlive = true;
 		grid[1][2].isAlive = true;
-		grid[2][3].isAlive = true;
-		grid[3][3].isAlive = true;
-		grid[3][2].isAlive = true;
-		grid[3][1].isAlive = true;		
+		grid[2][2].isAlive = true;
+		grid[2][1].isAlive = true;
+		grid[2][0].isAlive = true;		
 	}
 
 	public void initGrid( int rows, int cols ) {
@@ -43,6 +45,15 @@ public class GameOfLife {
 			for ( int c=0; c<grid[0].length; c++ ) {
 				grid[r][c].update();
 			}
+		}
+	}
+	
+	public void clear() {
+		for ( int r=0; r<grid.length; r++ ) {
+			for ( int c=0; c<grid[0].length; c++ ) {
+				grid[r][c].isAlive = false;
+				grid[r][c].nextState = false;
+			}	
 		}
 	}
 	

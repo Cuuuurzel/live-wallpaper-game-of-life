@@ -1,0 +1,20 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.content.Context;
+import android.widget.GridLayout;
+
+public class GolSwitcherGrid extends GridLayout {
+
+	public GolSwitcherGrid( Context context ) {
+		this( context, null );
+	}
+	
+	public GolSwitcherGrid( Context context, AttributeSet as ) {
+		this( context, as, 0 );
+	}
+	
+	public GolSwitcherGrid(Context context, AttributeSet as, int ds ) {
+		super( context, as, ds );
+	}
+	
+}

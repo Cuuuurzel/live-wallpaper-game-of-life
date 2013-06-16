@@ -1,0 +1,24 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+
+
+public class GolSwitcherGrid extends View {
+
+	public GolSwitcherGrid( Context context ) {
+		this( context, null );
+	}
+
+	public GolSwitcherGrid( Context context, AttributeSet attrs ) {
+		this( context, attrs, 0 );
+	}
+
+	public GolSwitcherGrid( Context context, AttributeSet attrs, int defStyle ) {
+		super(context, attrs, defStyle);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+}

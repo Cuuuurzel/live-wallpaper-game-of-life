@@ -1,0 +1,27 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+
+public class GolSettings extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+
+	@Override
+	protected void onCreate(Bundle icicle) {
+		super.onCreate(icicle);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+			String key) {
+	}
+}

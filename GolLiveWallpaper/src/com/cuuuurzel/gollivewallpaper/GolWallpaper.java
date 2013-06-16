@@ -5,10 +5,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.service.wallpaper.WallpaperService;
 import android.util.DisplayMetrics;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 public class GolWallpaper extends WallpaperService {
@@ -24,10 +22,7 @@ public class GolWallpaper extends WallpaperService {
 	class GolEngine extends Engine {
 
 		private final Paint mPaint = new Paint();
-		private long mStartTime;
 		private GameOfLife game;
-		private boolean gamePause = false;
-		private DummyWidget btnPause;
 		
 		private final Runnable mSampleDraw = new Runnable() {
 			public void run() {
@@ -42,9 +37,6 @@ public class GolWallpaper extends WallpaperService {
 			DisplayMetrics metrics = getBaseContext().getResources().getDisplayMetrics();
 			float r = metrics.heightPixels / Float.valueOf( metrics.widthPixels );
 			game = new GameOfLife( (int) (12*r), 12 );
-			btnPause = new DummyWidget( 7*metrics.widthPixels/8, metrics.heightPixels/8, 
-					                    metrics.widthPixels/8,   metrics.heightPixels/8 );
-			mStartTime = SystemClock.elapsedRealtime();
 		}
 
 		@Override
@@ -96,25 +88,6 @@ public class GolWallpaper extends WallpaperService {
 		}
 
 		/*
-		 * Store the position of the touch event so we can use it for drawing
-		 * later
-		 */
-		@Override
-		public void onTouchEvent( MotionEvent event ) {
-			if ( event.getAction() == MotionEvent.ACTION_DOWN ) {
-				if ( gamePause ) {
-					if ( btnPause.collide( event.getX(), event.getY() ) );
-				}
-				/*DisplayMetrics metrics = getBaseContext().getResources().getDisplayMetrics();
-				int r = (int) ( ( event.getY() / metrics.heightPixels ) * game.grid.length );
-				int c = (int) ( ( event.getX() / metrics.widthPixels ) * game.grid[0].length );
-				game.grid[r][c].isAlive = !game.grid[r][c].isAlive;				
-				drawFrame();*/
-			}
-			super.onTouchEvent( event );
-		}
-
-		/*
 		 * Draw one frame of the animation. This method gets called repeatedly
 		 * by posting a delayed Runnable. You can do any drawing you want in
 		 * here.
@@ -162,18 +135,18 @@ public class GolWallpaper extends WallpaperService {
 					}
 				}
 			}
-			if ( !gamePause ) game.update();
+			game.update();
 			cnv.restore();
 		}
 		
 		void drawGrid( float d, float w, float h, Canvas cnv ) {
 			mPaint.setColor( 0x88FFFFFF );
 			for (int r=0; r<game.grid.length+1; r++) {
-				cnv.drawLine( 0, d*r, w, d*r, mPaint );
+				cnv.drawLine( 0, d*r, game.grid.length*d, d*r, mPaint );
 			}
 
 			for (int c=0; c<game.grid[0].length+1; c++) {
-				cnv.drawLine( d*c, 0, d*c, h, mPaint );
+				cnv.drawLine( d*c, 0, d*c, game.grid[0].length*d, mPaint );
 			}
 		}
 	}

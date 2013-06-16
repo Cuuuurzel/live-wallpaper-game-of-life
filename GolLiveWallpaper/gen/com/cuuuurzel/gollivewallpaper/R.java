@@ -13,11 +13,24 @@ public final class R {
     public static final class drawable {
         public static final int glider=0x7f020000;
     }
+    public static final class id {
+        public static final int btnClear=0x7f070005;
+        public static final int btnSetSize=0x7f070006;
+        public static final int edtCols=0x7f070003;
+        public static final int edtRows=0x7f070001;
+        public static final int golgrid=0x7f070004;
+        public static final int linearLayout1=0x7f070000;
+        public static final int textView1=0x7f070002;
+    }
+    public static final class layout {
+        public static final int settings=0x7f030000;
+    }
     public static final class string {
-        public static final int action_settings=0x7f040001;
-        public static final int app_name=0x7f040000;
-        public static final int hello_world=0x7f040002;
-        public static final int wallpaper_gol=0x7f040003;
+        public static final int app_name=0x7f050000;
+        public static final int gol_settings=0x7f050002;
+        public static final int gol_settings_summary=0x7f050004;
+        public static final int gol_settings_title=0x7f050003;
+        public static final int wallpaper_gol=0x7f050001;
     }
     public static final class style {
         /** 
@@ -30,13 +43,15 @@ res/values-vXX/styles.xml, while customizations related to
 backward-compatibility can go here.
 
          */
-        public static final int AppBaseTheme=0x7f050000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f050001;
+        public static final int AppTheme=0x7f060001;
     }
     public static final class xml {
-        public static final int gol=0x7f030000;
+        public static final int gol=0x7f040000;
+        public static final int gol_settings=0x7f040001;
+        public static final int prefs=0x7f040002;
     }
 }

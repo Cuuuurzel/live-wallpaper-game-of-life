@@ -1,0 +1,64 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
+
+public class GolSettings extends PreferenceActivity {
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView( R.layout.settings );
+        
+        //Setting up two listener for text events...
+        EditText edtRows = (EditText) findViewById( R.id.edtRows );
+        edtRows.addTextChangedListener( new TextWatcher() {
+            public void afterTextChanged( Editable s ) {
+                onRowsChange( s.toString() );
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){}
+        }); 
+        EditText edtCols = (EditText) findViewById( R.id.edtCols );
+        edtCols.addTextChangedListener( new TextWatcher() {
+            public void afterTextChanged( Editable s ) {
+            	onColsChange( s.toString() );
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){}
+        }); 
+    }
+    
+    public void onRowsChange( String s ) {
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	int n;
+    	try {
+    		int n = Integer.parseInt( s );
+    		if ( n < 3 ) {
+    	        EditText edtRows = (EditText) findViewById( R.id.edtCols );
+    	        edtRows.setText( "3" );
+    	        n = 3;
+    		}
+    		if ( n > 40 ) {
+    	        EditText edtRows = (EditText) findViewById( R.id.edtCols );
+    	        edtRows.setText( "40" );    
+    	        n = 40;
+    		}
+    	} catch ( NumberFormatException e ) {
+    		n = gsg.rows();
+    	}
+    	
+    	gsg.setSize( r, gsg.cols() );
+    	gsg.invalidate();    	
+    }
+    
+    public void onColsChange( String s ) {
+    	int r=0, c=0;
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	gsg.setSize( r, c );
+    	gsg.invalidate();    	
+    }
+}

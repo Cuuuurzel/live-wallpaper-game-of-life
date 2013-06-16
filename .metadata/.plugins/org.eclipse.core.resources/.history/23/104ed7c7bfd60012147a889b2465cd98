@@ -1,0 +1,31 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+
+
+public class GolSwitcherGrid extends View {
+
+	private GameOfLife gameState;
+	
+	public GolSwitcherGrid( Context context ) {
+		this( context, null );
+	}
+
+	public GolSwitcherGrid( Context context, AttributeSet attrs ) {
+		this( context, attrs, 0 );
+	}
+
+	public GolSwitcherGrid( Context context, AttributeSet attrs, int defStyle ) {
+		super(context, attrs, defStyle);
+		this.init( 5, 5 );
+	}
+	
+	public void init( int rows, int cols ) {
+		this.gameState = new GameOfLife( rows, cols );
+		
+	}
+
+	
+}

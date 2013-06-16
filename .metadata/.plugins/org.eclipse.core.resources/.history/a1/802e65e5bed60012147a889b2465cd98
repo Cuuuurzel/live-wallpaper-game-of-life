@@ -1,0 +1,7 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.widget.GridLayout;
+
+public class GolSwitcherGrid extends GridLayout {
+	
+}

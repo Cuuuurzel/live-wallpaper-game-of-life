@@ -1,0 +1,35 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
+
+public class GolSettings extends PreferenceActivity {
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView( R.layout.settings );
+        
+        //Setting up a listener for text events...
+        EditText edtRows = (EditText) findViewById( R.id.edtRows );
+        edtRows.addTextChangedListener( new TextWatcher(){
+            public void afterTextChanged(Editable s) {
+                i++;
+                tv.setText(String.valueOf(i) + " / " + String.valueOf(charCounts));
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){}
+        }); 
+    }
+    
+    public void onDensityChange( View v ) {
+    	int r=0, c=0;
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	gsg.setSize( r, c );
+    	gsg.invalidate();    	
+    }
+}

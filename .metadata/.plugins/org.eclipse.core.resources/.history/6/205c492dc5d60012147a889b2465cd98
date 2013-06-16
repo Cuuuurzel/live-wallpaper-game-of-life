@@ -1,0 +1,26 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.view.View;
+
+public class GolSettings extends PreferenceActivity {
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView( R.layout.settings );
+    }
+
+    public void incSize( View v ) {
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	gsg.setSize( gsg.rows()+1, gsg.cols()+1 );
+    	gsg.invalidate();
+    }
+    
+    public void decSize( View v ) {
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	gsg.setSize( gsg.rows()-1, gsg.cols()-1 );
+    	gsg.invalidate();    	
+    }
+}
