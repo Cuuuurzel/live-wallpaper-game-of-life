@@ -1,0 +1,76 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.view.View;
+import android.widget.EditText;
+
+public class GolSettings extends PreferenceActivity {
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView( R.layout.settings );
+        
+        //Setting up the grid
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	gsg.setSize( 16, 9 );
+    	gsg.invalidate();    	
+    }
+    
+    private int getRows() {
+        EditText edtRows = (EditText) findViewById( R.id.edtRows );
+        String s = edtRows.getText().toString();
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	int n;
+    	try {
+    		n = Integer.parseInt( s );
+    		if ( n < 3 ) {
+    	        edtRows.setText( "3" );
+    	        n = 3;
+    		}
+    		if ( n > 40 ) {
+    	        edtRows.setText( "40" );    
+    	        n = 40;
+    		}
+    	} catch ( NumberFormatException e ) {
+    		n = gsg.rows();
+    	}
+    	return n; 	
+    }
+    
+    public int getCols() {
+        EditText edtCols = (EditText) findViewById( R.id.edtCols );
+        String s = edtCols.getText().toString();
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	int n;
+    	try {
+    		n = Integer.parseInt( s );
+    		if ( n < 3 ) {
+    	        edtCols.setText( "3" );
+    	        n = 3;
+    		}
+    		if ( n > 25 ) {
+    	        edtCols.setText( "25" );    
+    	        n = 25;
+    		}
+    	} catch ( NumberFormatException e ) {
+    		n = gsg.cols();
+    	}
+    	return n; 
+    }
+    
+    public void setSize( View v ) {
+    	int r = getRows();
+    	int c = getCols();    	
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	gsg.setSize( r, c );
+    	gsg.invalidate();
+    }
+    
+    public void clearGrid( View v ) {
+    	GolSwitcherGrid gsg = (GolSwitcherGrid) findViewById( R.id.golgrid );
+    	gsg.clear();
+    	gsg.invalidate();
+    }
+}

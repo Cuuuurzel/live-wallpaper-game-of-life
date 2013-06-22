@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+	<Button 
+	    android:id="@+id/menu_save"
+	    android:text="Save"
+        android:showAsAction="ifRoom|withText" />
+    
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="1dp"
+        android:layout_height="1dp" >
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </LinearLayout>
+
+    <com.cuuuurzel.gollivewallpaper.GolSwitcherGrid
+        android:id="@+id/golgrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1" />
+
+</RelativeLayout>

@@ -83,11 +83,11 @@ public class GolSwitcherGrid extends View {
 	}
 	
 	private void drawGrid( float d, Canvas cnv ) {
-		for (int r=0; r<gameState.grid.length+1; r++) {
+		for (int r=0; r<gameState.grid.length+2; r++) {
 			cnv.drawLine( 0, d*r, d*(gameState.grid[0].length+1), d*r, mPaint );
 		}
 
-		for (int c=0; c<gameState.grid[0].length+1; c++) {
+		for (int c=0; c<gameState.grid[0].length+2; c++) {
 			cnv.drawLine( d*c, 0, d*c, d*(gameState.grid.length+1), mPaint );
 		}
 	}

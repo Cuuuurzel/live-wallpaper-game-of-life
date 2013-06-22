@@ -1,0 +1,49 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import java.util.List;
+
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
+import android.widget.Button;
+
+public class GolSettings extends PreferenceActivity {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+        // Display the fragment as the main content.
+        getFragmentManager().beginTransaction().replace( 
+        		android.R.id.content,
+                new RowsFragment() ).commit();
+        getFragmentManager().beginTransaction().replace( 
+        		android.R.id.content,
+                new ColsFragment() ).commit();
+	}
+
+	/**
+	 * Populate the activity with the top-level headers.
+	 */
+	@Override
+	public void onBuildHeaders(List<Header> target) {
+		loadHeadersFromResource(R.xml.pref_headers, target);
+	}
+
+    public static class RowsFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource( R.xml.frag_settings );
+        }
+    }
+
+    public static class ColsFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource( R.xml.frag_settings );
+        }
+    }
+
+}

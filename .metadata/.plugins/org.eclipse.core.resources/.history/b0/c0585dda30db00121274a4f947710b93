@@ -1,0 +1,27 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import java.util.List;
+
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
+
+public class GolSettings extends PreferenceActivity {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+        // Display the fragment as the main content.
+        getFragmentManager().beginTransaction().replace( 
+        		android.R.id.content,
+                new GridSizeFragment() ).commit();
+	}
+
+    public static class GridSizeFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource( R.xml.pref_fragments );
+        }
+    }
+}

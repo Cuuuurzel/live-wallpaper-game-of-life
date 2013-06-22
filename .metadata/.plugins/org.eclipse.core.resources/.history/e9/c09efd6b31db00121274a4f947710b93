@@ -1,0 +1,14 @@
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="inline_preferences">
+
+        <EditTextPreference
+                android:key="checkbox_preference"
+                android:title="title_checkbox_preference"
+                android:summary="summary_checkbox_preference" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,10 @@
+<preference-headers
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <header android:fragment="com.cuuuurzel.gollivewallpaper.GolSettings$RowsFragment"
+            android:title="Number of rows" />
+
+    <header android:fragment="com.cuuuurzel.gollivewallpaper.GolSettings$ColsFragment"
+            android:title="Number of columns" />
+
+</preference-headers>

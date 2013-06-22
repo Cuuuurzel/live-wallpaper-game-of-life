@@ -1,76 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="1dp"
-        android:layout_height="1dp" >
-    </ListView>
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/edtRows"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <Button
+            android:id="@+id/btnDecRows"
+            android:layout_width="0dip"
             android:layout_weight="1"
-            android:ems="10"
-            android:inputType="number"
-            android:text="20" >
+            android:layout_height="wrap_content"
+            android:text="R--" />
 
-            <requestFocus />
-        </EditText>
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
-            android:text="&lt;- Rows &amp; Cols ->"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-        <EditText
-            android:id="@+id/edtCols"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <Button
+            android:id="@+id/btnIncRows"
+            android:layout_width="0dip"
             android:layout_weight="1"
-            android:ems="10"
-            android:inputType="number"
-            android:text="12" />
+            android:layout_height="wrap_content"
+            android:text="R++" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/btnIncCols"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="C++" />
+
+        <Button
+            android:id="@+id/btnDecCols"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="C--" />
     </LinearLayout>
 
     <com.cuuuurzel.gollivewallpaper.GolSwitcherGrid
-        android:id="@+id/golgrid"
+        android:id="@+id/grid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1" />
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/btnClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/btnSetSize"
-        android:layout_marginTop="20dp"
-        android:onClick="clearGrid"
-        android:text="Clear" />
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </ListView>
 
-    <Button
-        android:id="@+id/btnSetSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/golgrid"
-        android:layout_marginTop="22dp"
-        android:onClick="setSize"
-        android:text="Set Size" />
-
-</RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+
+        <Button
+            android:id="@+id/btnDecRows"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="R--" />
+
+        <Button
+            android:id="@+id/btnIncRows"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="R++" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/btnIncCols"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="C++" />
+
+        <Button
+            android:id="@+id/btnDecCols"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="C--" />
+    </LinearLayout>
+
+    <com.cuuuurzel.gollivewallpaper.GolSwitcherGrid
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </ListView>
+
+</LinearLayout>
