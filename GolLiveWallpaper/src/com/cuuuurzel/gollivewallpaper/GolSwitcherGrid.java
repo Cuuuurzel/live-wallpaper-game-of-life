@@ -1,5 +1,13 @@
 package com.cuuuurzel.gollivewallpaper;
 
+import java.io.BufferedReader;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -30,8 +38,40 @@ public class GolSwitcherGrid extends View {
 		mPaint.setColor(0xFFFFFFFF);
 		this.gameState = new GameOfLife( 5, 5 );
 	}
+
+	/**
+	 * Load config from the indicated file.
+	 * File format :
+	 * n of rows, n of columns[, rowN, colM, rowX, colY, ...]
+	 * Where the cells indicated are active.
+	 */
+	public void setup( String path ) throws IOException {
+		ObjectInputStream in = new ObjectInputStream(
+				new FileInputStream( path ) );
+		int rows = in.readInt();
+		int cols = in.readInt();
+		this.setSize( rows, cols );
+
+		int r, c;
+		try {
+			while ( true ) {
+				r = in.readInt();
+				c = in.readInt();
+				this.gameState.grid[r][c].isAlive = true;
+			}
+		} catch ( EOFException e ) {}
+	}
 	
+	public boolean isAlive( int r, int c ) {
+		return this.gameState.grid[r][c].isAlive;
+	}
+	
+	/**
+	 * Min grid size is 3x3!  
+	 */
 	public void setSize( int rows, int cols ) {
+		if ( rows < 3 ) rows = 3;
+		if ( cols < 3 ) cols = 3;
 		Cell[][] lastConfig = this.gameState.grid;		
 		this.gameState = new GameOfLife( rows, cols );		
 		

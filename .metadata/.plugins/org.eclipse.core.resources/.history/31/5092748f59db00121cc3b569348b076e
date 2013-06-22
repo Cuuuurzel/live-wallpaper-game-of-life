@@ -1,0 +1,44 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+
+public class GolSettings extends Activity {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView( R.layout.settings );
+	}
+
+	private GolSwitcherGrid getGrid() {
+		return (GolSwitcherGrid) findViewById( R.id.grid );		
+	}
+	
+	public void incRows( View v ) {
+		GolSwitcherGrid grid = getGrid();
+		grid.setSize( grid.rows()+1, grid.cols() );
+	}
+	
+	public void incCols( View v ) {
+		GolSwitcherGrid grid = getGrid();
+		grid.setSize( grid.rows(), grid.cols()+1 );
+	}
+	
+	public void decRows( View v ) {
+		GolSwitcherGrid grid = getGrid();
+		grid.setSize( grid.rows()-1, grid.cols() );
+	}
+	
+	public void decCols( View v ) {
+		GolSwitcherGrid grid = getGrid();
+		grid.setSize( grid.rows(), grid.cols()-1 );
+	}
+
+	public void saveConfig( View v ) {		
+	}
+	
+	public void clear( View v ) {
+		getGrid().clear();
+	}
+}

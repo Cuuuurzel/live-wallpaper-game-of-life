@@ -13,35 +13,40 @@
             android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="R--" />
+            android:text="R--"
+            android:onClick="decRows" />
 
         <Button
             android:id="@+id/btnIncRows"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="R++" />
+            android:text="R++" 
+            android:onClick="incRows" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Save" />
+            android:text="Save"
+            android:onClick="saveConfig" />
 
         <Button
             android:id="@+id/btnIncCols"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="C++" />
+            android:text="C++" 
+            android:onClick="incCols" />
 
         <Button
             android:id="@+id/btnDecCols"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="C--" />
+            android:text="C--" 
+            android:onClick="decCols" />
     </LinearLayout>
 
     <com.cuuuurzel.gollivewallpaper.GolSwitcherGrid

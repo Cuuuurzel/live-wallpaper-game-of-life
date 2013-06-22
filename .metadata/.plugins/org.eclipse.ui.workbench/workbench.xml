@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="14" version="2.0">
+<workbench progressCount="30" version="2.0">
 <workbenchAdvisor/>
 <window height="1056" maximized="true" width="807" x="480" y="124">
 <fastViewData fastViewLocation="1024"/>
@@ -8,13 +8,13 @@
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="144" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="0" y="30"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="68" y="30"/>
-<coolItem id="adt.actionSet.lint" itemType="typeToolBarContribution" x="60" y="30"/>
-<coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="0" y="30"/>
+<coolItem id="adt.actionSet.lint" itemType="typeToolBarContribution" x="0" y="30"/>
+<coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="0" y="30"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="0" y="30"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -25,13 +25,13 @@
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="UserSeparator" itemType="typeSeparator"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="30"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
-<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
-<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="42" y="30"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="0" y="30"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="0" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="0" y="30"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="0" y="30"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
+<coolItem id="UserSeparator" itemType="typeSeparator"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
 </coolbarLayout>
 <page aggregateWorkingSetId="Aggregate for window 1371304862931" focus="true" label="Workspace - Java">
 <editors>
@@ -41,16 +41,21 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="settings.xml" partName="settings.xml" path="/home/curzel/Scrivania/live-wallpaper-game-of-life/GolLiveWallpaper/res/layout/settings.xml" title="settings.xml" tooltip="GolLiveWallpaper/res/layout/settings.xml" workbook="DefaultEditorWorkbook">
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="settings.xml" partName="settings.xml" path="/home/curzel/Scrivania/live-wallpaper-game-of-life/GolLiveWallpaper/res/layout/settings.xml" title="settings.xml" tooltip="GolLiveWallpaper/res/layout/settings.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GolLiveWallpaper/res/layout/settings.xml"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GolSettings.java" partName="GolSettings.java" path="/home/curzel/Scrivania/live-wallpaper-game-of-life/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java" title="GolSettings.java" tooltip="GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GolSettings.java" partName="GolSettings.java" path="/home/curzel/Scrivania/live-wallpaper-game-of-life/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java" title="GolSettings.java" tooltip="GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="306" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GolSwitcherGrid.java" partName="GolSwitcherGrid.java" path="/home/curzel/Scrivania/live-wallpaper-game-of-life/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSwitcherGrid.java" title="GolSwitcherGrid.java" tooltip="GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSwitcherGrid.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSwitcherGrid.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1673" selectionTopPixel="452"/>
 </editor>
 </editors>
 <views>
@@ -65,7 +70,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (5 items)"/>
+<category IMemento.internal.id="Warnings (10 items)"/>
 <category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
@@ -117,7 +122,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="0" fixed="0" version="0.016">
 <descriptor class="com.android.ide.eclipse.ddms.Perspective" id="com.android.ide.eclipse.ddms.Perspective" label="DDMS"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -308,111 +313,157 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/GolLiveWallpaper/AndroidManifest.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/GolLiveWallpaper/res/xml/gol_settings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/GolLiveWallpaper/res/xml/prefs.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/GolLiveWallpaper/res/layout/settings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/GolLiveWallpaper/res/xml/frag_settings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/GolLiveWallpaper/res/xml/pref_headers.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/GolLiveWallpaper/res/xml/gol.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolWallpaper.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/GolLiveWallpaper/res/xml/pref_fragments.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/GolLiveWallpaper/res/xml/grid_size_fragment.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GameOfLife.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSwitcherGrid.java"/>
 </editors>
-<item historyLabel="prefs.xml" index="3"/>
-<item historyLabel="GolSettings.java" index="0">
-<position info="not_deleted" x="1287" y="0"/>
-</item>
-<item historyLabel="frag_settings.xml" index="5"/>
-<item historyLabel="pref_headers.xml" index="6"/>
-<item historyLabel="frag_settings.xml" index="5"/>
-<item historyLabel="gol_settings.xml" index="2"/>
-<item historyLabel="gol.xml" index="7"/>
-<item historyLabel="gol_settings.xml" index="2"/>
-<item historyLabel="GolLiveWallpaper Manifest" index="1"/>
-<item historyLabel="gol_settings.xml" index="2"/>
-<item historyLabel="GolSettings.java" index="0">
-<position info="not_deleted" x="1287" y="0"/>
-</item>
-<item historyLabel="frag_settings.xml" index="5"/>
-<item historyLabel="GolWallpaper.java" index="8">
-<position info="not_deleted" x="395" y="0"/>
-</item>
-<item historyLabel="frag_settings.xml" index="5"/>
-<item historyLabel="GolSettings.java" index="9">
+<item historyLabel="GolSettings.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="pref_headers.xml" index="6"/>
-<item historyLabel="GolSettings.java" index="9">
+<item historyLabel="settings.xml" index="0"/>
+<item historyLabel="GolSettings.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="pref_headers.xml" index="6"/>
-<item historyLabel="GolSettings.java" index="9">
+<item historyLabel="settings.xml" index="0">
+<position info="not_deleted" x="348" y="247"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="pref_headers.xml" index="6"/>
-<item historyLabel="GolSettings.java" index="9">
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="330" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="497" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="554" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="674" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="628" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="657" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="676" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="954" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="676" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="851" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="676" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1653" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
 <position/>
 </item>
-<item historyLabel="frag_settings.xml" index="5"/>
-<item historyLabel="GolSettings.java" index="9">
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1653" y="0"/>
+</item>
+<item historyLabel="settings.xml" index="0"/>
+<item historyLabel="GolSettings.java" index="2">
 <position/>
 </item>
-<item historyLabel="pref_headers.xml" index="6"/>
-<item historyLabel="GolSettings.java" index="9">
-<position info="not_deleted" x="70" y="0"/>
-</item>
-<item historyLabel="pref_fragments.xml" index="10"/>
-<item historyLabel="GolSettings.java" index="9">
-<position/>
-</item>
-<item historyLabel="grid_size_fragment.xml" index="11"/>
-<item historyLabel="GolSettings.java" index="9">
-<position/>
-</item>
-<item historyLabel="gol_settings.xml" index="2"/>
-<item historyLabel="GolSettings.java" index="9">
-<position/>
-</item>
-<item historyLabel="gol_settings.xml" index="2"/>
-<item historyLabel="GolLiveWallpaper Manifest" index="1"/>
-<item historyLabel="GolSettings.java" index="9">
-<position/>
-</item>
-<item historyLabel="gol.xml" index="7"/>
-<item historyLabel="GolSettings.java" index="9">
-<position info="not_deleted" x="282" y="0"/>
-</item>
-<item historyLabel="GolLiveWallpaper Manifest" index="1"/>
-<item historyLabel="settings.xml" index="4"/>
-<item historyLabel="GolSettings.java" index="9">
-<position info="not_deleted" x="282" y="0"/>
-</item>
-<item historyLabel="settings.xml" index="4"/>
-<item historyLabel="GolSettings.java" index="9">
-<position info="not_deleted" x="282" y="0"/>
-</item>
-<item historyLabel="settings.xml" index="4"/>
-<item historyLabel="GolSettings.java" index="9">
-<position info="not_deleted" x="282" y="0"/>
-</item>
-<item historyLabel="settings.xml" index="4"/>
-<item historyLabel="GameOfLife.java" index="12">
+<item historyLabel="GolSwitcherGrid.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="settings.xml" index="4"/>
-<item historyLabel="GolSettings.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1240" y="0"/>
 </item>
-<item historyLabel="settings.xml" index="4"/>
-<item historyLabel="GolSettings.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1597" y="0"/>
 </item>
-<item active="true" historyLabel="settings.xml" index="4"/>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1597" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1039" y="160"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1101" y="101"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1110" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1101" y="101"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1110" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1133" y="60"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1380" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1540" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1130" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1133" y="60"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1650" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1130" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1650" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1130" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1650" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1278" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1450" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1584" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1130" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1675" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1673" y="0"/>
+</item>
+<item historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1074" y="0"/>
+</item>
+<item historyLabel="GolSwitcherGrid.java" index="3">
+<position info="not_deleted" x="1673" y="0"/>
+</item>
+<item active="true" historyLabel="GolSettings.java" index="2">
+<position info="not_deleted" x="1074" y="0"/>
+</item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -420,6 +471,7 @@
 <actionBarAdvisor/>
 <trimLayout>
 <trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.HeapStatus"/>
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
@@ -428,6 +480,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GolSwitcherGrid.java" tooltip="GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSwitcherGrid.java">
+<persistable path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSwitcherGrid.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GolSettings.java" tooltip="GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java">
 <persistable path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/GolSettings.java"/>
 </file>
@@ -469,9 +524,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SettingsFragment.java" tooltip="GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/SettingsFragment.java">
 <persistable path="/GolLiveWallpaper/src/com/cuuuurzel/gollivewallpaper/SettingsFragment.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="styles.xml" tooltip="GolLiveWallpaper/res/values-v14/styles.xml">
-<persistable path="/GolLiveWallpaper/res/values-v14/styles.xml"/>
 </file>
 </mruList>
 </workbench>
