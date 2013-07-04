@@ -2,63 +2,91 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btnDecRows"
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="R--"
-            android:onClick="decRows" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.88" >
 
         <Button
             android:id="@+id/btnIncRows"
-            android:layout_width="0dip"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="R++" 
+            android:text="More Rows"
             android:onClick="incRows" />
 
         <Button
-            android:id="@+id/btnSave"
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:onClick="saveConfig" />
-
-        <Button
             android:id="@+id/btnIncCols"
-            android:layout_width="0dip"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="C++" 
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/btnDecRows"
+            android:text="More Columns"
             android:onClick="incCols" />
 
         <Button
-            android:id="@+id/btnDecCols"
-            android:layout_width="0dip"
-            android:layout_weight="1"
+            android:id="@+id/btnDecRows"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="C--" 
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Less Rows"
+            android:onClick="decRows" />
+
+        <Button
+            android:id="@+id/btnDecCols"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btnDecRows"
+            android:text="Less Columns"
             android:onClick="decCols" />
-    </LinearLayout>
 
-    <com.cuuuurzel.gollivewallpaper.GolSwitcherGrid
-        android:id="@+id/grid"
+        <TextView
+            android:id="@+id/txvGridSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnIncCols"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="  FPS ( 1 - 15 )    "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
+
+        <SeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:max="14"
+            android:progress="0" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSetPopulation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:onClick="showGrid"
+        android:text="Set initial population" />
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
-    </ListView>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save and exit"
+        android:onClick="saveAndExit" />
 
 </LinearLayout>

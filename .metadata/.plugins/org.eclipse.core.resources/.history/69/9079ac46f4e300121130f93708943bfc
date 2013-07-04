@@ -1,0 +1,59 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+
+public class GolSettingsGrid extends Activity {
+
+	String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/.gollivewallpaper/config";
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView( R.layout.settings_grid );		
+	}
+	
+	public GolSwitcherGrid getGrid() {
+		return (GolSwitcherGrid) findViewById( R.id.grid );		
+	}
+	
+	/**
+	 * Save a file to the path. File format : n of rows, n of columns[, rowN,
+	 * colM, rowX, colY, ...] Where the cells indicated are active.
+	 */
+	public void saveConfig() {
+		try {
+			GolSwitcherGrid grid = getGrid();
+			ObjectOutputStream out = new ObjectOutputStream(
+					new FileOutputStream());
+
+			out.writeInt(grid.rows());
+			out.writeInt(grid.cols());
+			for (int r = 0; r < grid.rows(); r++) {
+				for (int c = 0; c < grid.cols(); c++) {
+					if (grid.isAlive(r, c)) {
+						out.writeInt(r);
+						out.writeInt(c);
+					}
+				}
+			}
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Override
+	public void finish() {
+		System.out.println( "AHHOOOOOO");
+		saveConfig();
+	    setResult( Activity.RESULT_OK, new Intent() );
+		super.finish();
+	}
+}

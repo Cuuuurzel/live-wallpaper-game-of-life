@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Game Of Life</string>
+    <string name="wallpaper_gol">Game of Life</string>
+    <string name="gol_settings">Settings</string>
+    <string name="gol_settings_title">Settings</string>
+    <string name="gol_settings_summary">Set grid size and FPS.</string>
+    <string name="gol_settings_grid">Settings</string>
+    <string name="gol_settings_grid_title">Initial Population</string>
+    <string name="gol_settings_grid_summary">Choose cell configuration for the simulation.</string>
+    
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>

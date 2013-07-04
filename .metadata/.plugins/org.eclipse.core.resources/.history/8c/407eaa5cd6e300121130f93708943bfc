@@ -1,0 +1,50 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+import android.widget.TextView;
+
+public class GolSettings extends Activity {
+	
+	int rows=3, cols=3;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView( R.layout.settings );
+		setLabelText();
+	}
+
+	public void incRows( View v ) { this.rows++; setLabelText(); }
+	public void incCols( View v ) { this.cols++; setLabelText(); }
+	public void decRows( View v ) {
+		if ( rows > 3 ) { this.rows--; } 
+		setLabelText(); }
+	public void decCols( View v ) { 
+		if ( cols > 3 )	{ this.cols--; } 
+		setLabelText(); 
+	}
+	
+	public void setLabelText() {
+		TextView l = (TextView) findViewById( R.id.txvGridSize );
+		l.setText( rows + " x " + cols );
+	}
+	
+	public void showGrid( View v ) {
+    	Intent intentMain = new Intent( 
+    			                        GolSettings.this, 
+                						GolSettingsGrid.class 
+                				      );
+    	Bundle args = new Bundle();
+    	args.putInt( "rows", rows );
+    	args.putInt( "cols", cols );
+    	GolSettings.this.startActivityForResult( intentMain, 1, args );
+	}	
+}

@@ -1,0 +1,72 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Environment;
+
+public class GolSettingsGrid extends Activity {
+
+	public static final String path = "gollivewallpaper.config";
+	int fps;
+	
+	@Override
+	protected void onCreate( Bundle savedInstanceState ) {
+		super.onCreate( savedInstanceState );
+		setContentView(R.layout.settings_grid);
+		getGrid().setup(Environment.getExternalStorageDirectory() + "/" + path);
+		this.fps = getIntent().getIntExtra( "fps", 2 );
+		int rows = getIntent().getIntExtra( "rows", 10 );
+		int cols = getIntent().getIntExtra( "cols", 6 );
+		getGrid().setSize( rows, cols );
+	}
+
+	public GolSwitcherGrid getGrid() {
+		return (GolSwitcherGrid) findViewById(R.id.grid);
+	}
+
+
+	@Override
+	public void finish() {
+		Intent returnIntent = new Intent();
+		GolSwitcherGrid grid = getGrid();
+		ArrayList<Integer> alives = new ArrayList<Integer>();
+		
+		for ( int r=0; r<grid.rows(); r++ ) {
+			for ( int c=0; c<grid.cols(); c++ ) {
+				if ( grid.isAlive( r, c ) ) {
+					alives.add( r );
+					alives.add( c );
+				}
+			}
+		}
+		int[] gridState = new int[ alives.size() ];
+		for ( int x=0; x<gridState.length; x++ ) {
+			gridState[x] = alives.get(x);
+		}
+		returnIntent.putExtra( "alives", gridState );
+		System.out.println( gridState );
+		setResult( Activity.RESULT_OK, returnIntent );
+		super.finish();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

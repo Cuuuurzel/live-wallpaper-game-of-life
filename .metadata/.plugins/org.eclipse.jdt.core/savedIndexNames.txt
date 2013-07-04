@@ -1,3 +1,2 @@
-INDEX VERSION 1.126+/home/curzel/Scrivania/live-wallpaper-game-of-life/.metadata/.plugins/org.eclipse.jdt.core
-1076411659.index
-3398335151.index
+INDEX VERSION 1.126+/home/cuuuurzel/Desktop/live-wallpaper-game-of-life/.metadata/.plugins/org.eclipse.jdt.core
+3363638761.index

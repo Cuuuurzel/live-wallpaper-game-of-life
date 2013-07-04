@@ -8,6 +8,7 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="17" />
     <uses-feature android:name="android.software.live_wallpaper" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +30,15 @@
             android:label="@string/gol_settings"
             android:name="GolSettings"            
 			android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.WallpaperSettings"
+        	android:theme="@style/AppTheme"
+            android:exported="true">
+        </activity>
+        
+        <activity
+            android:label="@string/gol_settings_grid"
+            android:name="GolSettingsGrid"            
+			android:screenOrientation="portrait"
+        	android:theme="@style/AppTheme"
             android:exported="true">
         </activity>
     </application>

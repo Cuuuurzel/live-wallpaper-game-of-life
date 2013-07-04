@@ -1,9 +1,12 @@
 package com.cuuuurzel.gollivewallpaper;
 
+import java.io.IOException;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.os.Environment;
 import android.os.Handler;
 import android.service.wallpaper.WallpaperService;
 import android.util.DisplayMetrics;
@@ -21,9 +24,10 @@ public class GolWallpaper extends WallpaperService {
 
 	class GolEngine extends Engine {
 
-		private final Paint mPaint = new Paint();
+		private final Paint mPaint;
 		private GameOfLife game;
-		
+		int fps = 2;
+
 		private final Runnable mSampleDraw = new Runnable() {
 			public void run() {
 				drawFrame();
@@ -33,10 +37,13 @@ public class GolWallpaper extends WallpaperService {
 		private boolean mVisible;
 
 		public GolEngine() {
-			mPaint.setStyle( Style.FILL_AND_STROKE );
-			DisplayMetrics metrics = getBaseContext().getResources().getDisplayMetrics();
-			float r = metrics.heightPixels / Float.valueOf( metrics.widthPixels );
-			game = new GameOfLife( (int) (12*r), 12 );
+			mPaint = new Paint();
+			mPaint.setStyle(Style.FILL_AND_STROKE);
+			mPaint.setColor(0xFFFFFFFF);
+			DisplayMetrics metrics = getBaseContext().getResources()
+					.getDisplayMetrics();
+			float r = metrics.heightPixels / Float.valueOf(metrics.widthPixels);
+			game = new GameOfLife((int) (12 * r), 12);
 		}
 
 		@Override
@@ -59,6 +66,12 @@ public class GolWallpaper extends WallpaperService {
 				drawFrame();
 			} else {
 				mHandler.removeCallbacks(mSampleDraw);
+			}
+			try {
+				fps = game.setup( Environment.getExternalStorageDirectory() + 
+						"/" + GolSettingsGrid.path );
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 
@@ -99,7 +112,7 @@ public class GolWallpaper extends WallpaperService {
 			try {
 				c = holder.lockCanvas();
 				if (c != null) {
-					realDraw( c );
+					realDraw(c);
 				}
 			} finally {
 				if (c != null)
@@ -109,44 +122,49 @@ public class GolWallpaper extends WallpaperService {
 			// Reschedule the next redraw
 			mHandler.removeCallbacks(mSampleDraw);
 			if (mVisible) {
-				mHandler.postDelayed(mSampleDraw, 500);
+				try {
+					mHandler.postDelayed(mSampleDraw, 1000/fps );
+				} catch ( ArithmeticException e ) {
+					mHandler.postDelayed(mSampleDraw, 60000 );					
+				}
 			}
 		}
 
-		void realDraw(Canvas cnv) {			
+		void realDraw(Canvas cnv) {
 			float w = cnv.getWidth();
 			float h = cnv.getHeight();
-			
+
 			cnv.save();
-			if ( h < w ) { 
-				cnv.rotate( 90 );
-				cnv.translate( 0, -w );
-				float t=w; w=h; h=t;
-			}			
+			if (h < w) {
+				cnv.rotate(90);
+				cnv.translate(0, -w);
+				float t = w;
+				w = h;
+				h = t;
+			}	
 			
-			float d = h / game.grid.length;
+			float d = Math.max( h/game.grid.length, 
+					            w/game.grid[0].length );
 
 			cnv.drawColor( Color.BLACK );
-			mPaint.setColor(0xFFFFFFFF);
+			
 			for (int r = 0; r < game.grid.length; r++) {
 				for (int c = 0; c < game.grid[0].length; c++) {
-					if (game.grid[r][c].isAlive) {
+					if ( game.grid[r][c].isAlive ) {
 						cnv.drawRect( d*c, d*r, d*(c+1), d*(r+1), mPaint);
 					}
 				}
 			}
-			game.update();
 			cnv.restore();
+			game.update();
 		}
 		
-		void drawGrid( float d, float w, float h, Canvas cnv ) {
-			mPaint.setColor( 0x88FFFFFF );
+		private void drawGrid( float d, Canvas cnv ) {
 			for (int r=0; r<game.grid.length+1; r++) {
-				cnv.drawLine( 0, d*r, game.grid.length*d, d*r, mPaint );
+				cnv.drawLine( 0, d*r, d*game.grid[0].length, d*r, mPaint );
 			}
-
 			for (int c=0; c<game.grid[0].length+1; c++) {
-				cnv.drawLine( d*c, 0, d*c, game.grid[0].length*d, mPaint );
+				cnv.drawLine( d*c, 0, d*c, d*game.grid.length, mPaint );
 			}
 		}
 	}

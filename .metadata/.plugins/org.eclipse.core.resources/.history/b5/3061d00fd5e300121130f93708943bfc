@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.88" >
+
+        <Button
+            android:id="@+id/btnIncRows"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="More Rows"
+            android:onClick="incRows" />
+
+        <Button
+            android:id="@+id/btnIncCols"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/btnDecRows"
+            android:text="More Columns"
+            android:onClick="incCols" />
+
+        <Button
+            android:id="@+id/btnDecRows"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Less Rows"
+            android:onClick="decRows" />
+
+        <Button
+            android:id="@+id/btnDecCols"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btnDecRows"
+            android:text="Less Columns"
+            android:onClick="decCols" />
+
+        <TextView
+            android:id="@+id/txvGridSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnIncCols"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="  FPS :    "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <SeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/textView1"
+            android:max="10"
+            android:progress="2" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSetPopulation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Initial population ->" />
+
+</LinearLayout>
