@@ -12,19 +12,8 @@ public class GameOfLife {
 	
 	public GameOfLife( int rows, int cols ) {
 		this.initGrid( rows, cols );
-		try {
-			loadGlider();
-		} catch ( IndexOutOfBoundsException e ) {}
 	}
 	
-	private void loadGlider() {		
-		grid[0][1].isAlive = true;
-		grid[1][2].isAlive = true;
-		grid[2][2].isAlive = true;
-		grid[2][1].isAlive = true;
-		grid[2][0].isAlive = true;		
-	}
-
 	public void initGrid( int rows, int cols ) {
 		grid = new Cell[rows][cols];
 		for ( int r=0; r<rows; r++ ) {
@@ -85,12 +74,11 @@ public class GameOfLife {
 	 * n of rows, n of columns[, rowN, colM, rowX, colY, ...]
 	 * Where the cells indicated are active.
 	 */
-	public int setup( String path ) throws IOException {
-		int fps = 2;
+	public int setup( String path ) {
 		File inf = new File( path );
 		try {
-			ObjectInputStream in = new ObjectInputStream( new FileInputStream( path ) );
-			fps = in.readInt();
+			ObjectInputStream in = new ObjectInputStream( new FileInputStream( inf ) );
+			int fps = in.readInt();
 			int rows = in.readInt();
 			int cols = in.readInt();
 			this.setSize( rows, cols );
@@ -109,10 +97,12 @@ public class GameOfLife {
 				}	
 			} catch ( EOFException e ) {}
 			in.close();	
+			return fps;
 		} catch ( IOException e ) {
 			e.printStackTrace();
+			this.setSize( 10, 6 );
+			return 2;
 		}	
-		return fps;
 	}
 	
 	public String toString() {
@@ -126,5 +116,10 @@ public class GameOfLife {
 			s += sr + "\n";
 		}
 		return s;
+	}
+
+	public boolean isAlive(int r, int c) {
+		return this.grid[r][c].isAlive;
+		
 	}
 }

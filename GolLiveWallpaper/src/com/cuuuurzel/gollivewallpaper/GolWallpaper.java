@@ -1,7 +1,5 @@
 package com.cuuuurzel.gollivewallpaper;
 
-import java.io.IOException;
-
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -67,12 +65,8 @@ public class GolWallpaper extends WallpaperService {
 			} else {
 				mHandler.removeCallbacks(mSampleDraw);
 			}
-			try {
-				fps = game.setup( Environment.getExternalStorageDirectory() + 
-						"/" + GolSettingsGrid.path );
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			fps = game.setup(Environment.getExternalStorageDirectory() + "/"
+					+ GolSettingsGrid.path);
 		}
 
 		@Override
@@ -123,9 +117,9 @@ public class GolWallpaper extends WallpaperService {
 			mHandler.removeCallbacks(mSampleDraw);
 			if (mVisible) {
 				try {
-					mHandler.postDelayed(mSampleDraw, 1000/fps );
-				} catch ( ArithmeticException e ) {
-					mHandler.postDelayed(mSampleDraw, 60000 );					
+					mHandler.postDelayed(mSampleDraw, 1000 / fps);
+				} catch (ArithmeticException e) {
+					mHandler.postDelayed(mSampleDraw, 60000);
 				}
 			}
 		}
@@ -141,31 +135,22 @@ public class GolWallpaper extends WallpaperService {
 				float t = w;
 				w = h;
 				h = t;
-			}	
-			
-			float d = Math.max( h/game.grid.length, 
-					            w/game.grid[0].length );
+			}
 
-			cnv.drawColor( Color.BLACK );
-			
+			float d = Math.max(h / game.grid.length, w / game.grid[0].length);
+
+			cnv.drawColor(Color.BLACK);
+
 			for (int r = 0; r < game.grid.length; r++) {
 				for (int c = 0; c < game.grid[0].length; c++) {
-					if ( game.grid[r][c].isAlive ) {
-						cnv.drawRect( d*c, d*r, d*(c+1), d*(r+1), mPaint);
+					if (game.grid[r][c].isAlive) {
+						cnv.drawRect(d * c, d * r, d * (c + 1), d * (r + 1),
+								mPaint);
 					}
 				}
 			}
 			cnv.restore();
 			game.update();
-		}
-		
-		private void drawGrid( float d, Canvas cnv ) {
-			for (int r=0; r<game.grid.length+1; r++) {
-				cnv.drawLine( 0, d*r, d*game.grid[0].length, d*r, mPaint );
-			}
-			for (int c=0; c<game.grid[0].length+1; c++) {
-				cnv.drawLine( d*c, 0, d*c, d*game.grid.length, mPaint );
-			}
 		}
 	}
 }

@@ -1,11 +1,10 @@
 package com.cuuuurzel.gollivewallpaper;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,27 +17,35 @@ import android.widget.TextView;
 public class GolSettings extends Activity {
 
 	int fps, rows, cols;
-	int[] gridState; 
-	
+	int[] gridState;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.settings);
-		File inf = new File(Environment.getExternalStorageDirectory(),
-				GolSettingsGrid.path);
-		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream(
-					inf));
-			this.fps = in.readInt();
-			this.rows = in.readInt();
-			this.cols = in.readInt();
-			in.close();
-		} catch (IOException e) {
-			rows = 10;
-			cols = 6;
-			fps = 2;
-		}
+		initGridState();
 		setupForm(false);
+	}
+
+	public void initGridState() {
+		GameOfLife temp = new GameOfLife(3, 3);
+		this.fps = temp.setup(Environment.getExternalStorageDirectory() + "/"
+				+ GolSettingsGrid.path);
+		this.rows = temp.grid.length;
+		this.cols = temp.grid[0].length;
+		ArrayList<Integer> tempState = new ArrayList<Integer>();
+		for (int r = 0; r < temp.grid.length; r++) {
+			for (int c = 0; c < temp.grid[0].length; c++) {
+				if (temp.isAlive(r, c)) {
+					tempState.add(r);
+					tempState.add(c);
+				}
+			}
+		}
+		gridState = new int[tempState.size()];
+		for (int x = 0; x < tempState.size(); x++) {
+			gridState[x] = tempState.get(x);
+		}
 	}
 
 	public void incRows(View v) {
@@ -75,10 +82,7 @@ public class GolSettings extends Activity {
 	}
 
 	public void showGrid(View v) {
-		SeekBar skb = (SeekBar) findViewById(R.id.seekBar1);
-		fps = skb.getProgress() + 1;
 		Intent intentMain = new Intent(GolSettings.this, GolSettingsGrid.class);
-		intentMain.putExtra("fps", fps);
 		intentMain.putExtra("rows", rows);
 		intentMain.putExtra("cols", cols);
 		GolSettings.this.startActivityForResult(intentMain, 1);
@@ -89,26 +93,27 @@ public class GolSettings extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 
 		if (resultCode == Activity.RESULT_OK) {
-			this.gridState = data.getIntArrayExtra( "alives" );
+			this.gridState = data.getIntArrayExtra("alives");
 		}
 	}
 
 	public void saveAndExit(View v) {
 		try {
+			SeekBar skb = (SeekBar) findViewById(R.id.seekBar1);
+			this.fps = skb.getProgress() + 1;
 			File outf = new File(Environment.getExternalStorageDirectory(),
-					GolSettingsGrid.path );
+					GolSettingsGrid.path);
 			outf.createNewFile();
 			ObjectOutputStream out = new ObjectOutputStream(
 					new FileOutputStream(outf));
 
-			out.writeInt( this.fps );
-			out.writeInt( this.rows );
-			out.writeInt( this.cols );
-			try {
-				for (int x=0; x<this.gridState.length; x++ ) {
-					out.writeInt( gridState[x] );
-				}
-			} catch ( NullPointerException e ) {}
+			out.writeInt(this.fps);
+			out.writeInt(this.rows);
+			out.writeInt(this.cols);
+			for (int x = 0; x < this.gridState.length; x++) {
+				out.writeInt(gridState[x]);
+			}
+
 			out.close();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());

@@ -1,7 +1,5 @@
 package com.cuuuurzel.gollivewallpaper;
 
-import java.io.IOException;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -39,11 +37,7 @@ public class GolSwitcherGrid extends View {
 	 * Where the cells indicated are active.
 	 */
 	public void setup( String path ) {
-		try {
-			this.gameState.setup( path );
-		} catch (IOException e) {
-			e.printStackTrace();
-		}		
+		this.gameState.setup( path );
 	}
 	
 	public boolean isAlive( int r, int c ) {
