@@ -59,9 +59,8 @@ public class GolSwitcherGrid extends View {
 		int c = (int) Math.floor( m.getX() / d );
 		try {
 			this.gameState.grid[r][c].isAlive = !this.gameState.grid[r][c].isAlive;
-			this.invalidate();
-		} catch ( IndexOutOfBoundsException e ) {			
-		}
+		} catch ( IndexOutOfBoundsException e ) {}
+		this.invalidate();
 		return super.onTouchEvent( m );
 	}
 	
