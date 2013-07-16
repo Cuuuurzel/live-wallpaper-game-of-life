@@ -8,7 +8,6 @@
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="android.graphics.Paint"/>
 <fullyQualifiedTypeName name="android.graphics.Paint.Style"/>
-<fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="android.widget.EditText"/>
 <fullyQualifiedTypeName name="android.text.Editable"/>
 <fullyQualifiedTypeName name="android.text.TextWatcher"/>
@@ -48,4 +47,5 @@
 <fullyQualifiedTypeName name="com.cuuuurzel.gollivewallpaper.GolSettingsGrid"/>
 <fullyQualifiedTypeName name="com.cuuuurzel.gollivewallpaper.GameOfLife"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
 </qualifiedTypeNameHistroy>
