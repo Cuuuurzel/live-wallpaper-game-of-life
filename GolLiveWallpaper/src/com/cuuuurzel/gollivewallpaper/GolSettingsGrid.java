@@ -1,16 +1,17 @@
 package com.cuuuurzel.gollivewallpaper;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class GolSettingsGrid extends Activity {
 
 	public static final String path = "gollivewallpaper.config";
 	int fps;
+	int[] originalState;
 	
 	@Override
 	protected void onCreate( Bundle savedInstanceState ) {
@@ -21,33 +22,43 @@ public class GolSettingsGrid extends Activity {
 		int rows = getIntent().getIntExtra( "rows", 10 );
 		int cols = getIntent().getIntExtra( "cols", 6 );
 		getGrid().setSize( rows, cols );
+		originalState = getGrid().getState();
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.settings_menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected( MenuItem item ) {
+		
+	    switch ( item.getItemId() ) {
+	        case R.id.menu_clear : {
+	        	getGrid().clear();
+	        	originalState = new int[]{};
+	        	return true;	    
+	        }
+	        case R.id.menu_restore : {
+	        	getGrid().setup( originalState );
+	        	return true;
+	        }
+	        default:
+	            return super.onOptionsItemSelected( item );
+
+	    }	    
 	}
 
 	public GolSwitcherGrid getGrid() {
 		return (GolSwitcherGrid) findViewById(R.id.grid);
 	}
 
-
 	@Override
 	public void finish() {
 		Intent returnIntent = new Intent();
-		GolSwitcherGrid grid = getGrid();
-		ArrayList<Integer> alives = new ArrayList<Integer>();
-		
-		for ( int r=0; r<grid.rows(); r++ ) {
-			for ( int c=0; c<grid.cols(); c++ ) {
-				if ( grid.isAlive( r, c ) ) {
-					alives.add( r );
-					alives.add( c );
-				}
-			}
-		}
-		int[] gridState = new int[ alives.size() ];
-		for ( int x=0; x<gridState.length; x++ ) {
-			gridState[x] = alives.get(x);
-		}
-		returnIntent.putExtra( "alives", gridState );
-		System.out.println( gridState );
+		returnIntent.putExtra( "alives", getGrid().getState() );
 		setResult( Activity.RESULT_OK, returnIntent );
 		super.finish();
 	}

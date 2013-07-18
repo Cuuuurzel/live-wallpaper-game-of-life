@@ -83,8 +83,8 @@ public class GolSettings extends Activity {
 
 	public void showGrid(View v) {
 		Intent intentMain = new Intent(GolSettings.this, GolSettingsGrid.class);
-		intentMain.putExtra("rows", rows);
-		intentMain.putExtra("cols", cols);
+		intentMain.putExtra( "rows", rows );
+		intentMain.putExtra( "cols", cols );
 		GolSettings.this.startActivityForResult(intentMain, 1);
 	}
 

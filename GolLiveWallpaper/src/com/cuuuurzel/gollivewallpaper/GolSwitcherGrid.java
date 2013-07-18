@@ -1,5 +1,7 @@
 package com.cuuuurzel.gollivewallpaper;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -38,6 +40,16 @@ public class GolSwitcherGrid extends View {
 	 */
 	public void setup( String path ) {
 		this.gameState.setup( path );
+	}
+	
+	public void setup( int[] config ) {
+		int r, c;
+		this.clear();
+		for ( int i=0; i<config.length; i+=2 ) {
+			r = config[i];
+			c = config[i+1];
+			this.gameState.grid[r][c].isAlive = true;
+		}
 	}
 	
 	public boolean isAlive( int r, int c ) {
@@ -105,4 +117,21 @@ public class GolSwitcherGrid extends View {
 		this.gameState.setSize( rows, cols );		
 	}
 	
+	public int[] getState() {
+		ArrayList<Integer> alives = new ArrayList<Integer>();
+		
+		for ( int r=0; r<this.rows(); r++ ) {
+			for ( int c=0; c<this.cols(); c++ ) {
+				if ( this.isAlive( r, c ) ) {
+					alives.add( r );
+					alives.add( c );
+				}
+			}
+		}
+		int[] gridState = new int[ alives.size() ];
+		for ( int x=0; x<gridState.length; x++ ) {
+			gridState[x] = alives.get(x);
+		}
+		return gridState;
+	}
 }

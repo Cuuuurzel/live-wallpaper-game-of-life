@@ -1,0 +1,79 @@
+package com.cuuuurzel.gollivewallpaper;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class GolSettingsGrid extends Activity {
+
+	public static final String path = "gollivewallpaper.config";
+	int fps;
+	int[] originalState;
+	
+	@Override
+	protected void onCreate( Bundle savedInstanceState ) {
+		super.onCreate( savedInstanceState );
+		setContentView(R.layout.settings_grid);
+		getGrid().setup(Environment.getExternalStorageDirectory() + "/" + path);
+		this.fps = getIntent().getIntExtra( "fps", 2 );
+		int rows = getIntent().getIntExtra( "rows", 10 );
+		int cols = getIntent().getIntExtra( "cols", 6 );
+		getGrid().setSize( rows, cols );
+		originalState = getGrid().getState();
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.settings_menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected( MenuItem item ) {
+	    switch ( item.getItemId() ) {
+	        case R.id.menu_clear : 
+	        	break;
+	        
+	        case R.id.menu_restore : 
+	        	break;
+
+	        default:
+	            return super.onOptionsItemSelected( item );
+
+	    }	    
+	}
+
+	public GolSwitcherGrid getGrid() {
+		return (GolSwitcherGrid) findViewById(R.id.grid);
+	}
+
+	@Override
+	public void finish() {
+		Intent returnIntent = new Intent();
+		returnIntent.putExtra( "alives", getGrid().getState() );
+		setResult( Activity.RESULT_OK, returnIntent );
+		super.finish();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

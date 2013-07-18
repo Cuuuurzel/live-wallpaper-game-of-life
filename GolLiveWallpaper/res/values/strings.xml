@@ -9,7 +9,10 @@
     <string name="gol_settings_grid">Settings</string>
     <string name="gol_settings_grid_title">Initial Population</string>
     <string name="gol_settings_grid_summary">Choose cell configuration for the simulation.</string>
-    
+	<string name="menu_clear">Clear</string>
+	<string name="menu_restore">Restore</string>
+	
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+
 </resources>
