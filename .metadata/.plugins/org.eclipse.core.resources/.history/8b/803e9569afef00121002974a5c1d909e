@@ -33,20 +33,21 @@ public class GolSettingsGrid extends Activity {
 	}
 	
 	@Override
-	public boolean onOptionsItemSelected( MenuItem item ) {		
+	public boolean onOptionsItemSelected( MenuItem item ) {
+		
 	    switch ( item.getItemId() ) {
 	        case R.id.menu_clear : {
 	        	getGrid().clear();
-	        	getGrid().invalidate();
+	        	originalState = new int[]{};
 	        	return true;	    
 	        }
 	        case R.id.menu_restore : {
 	        	getGrid().setup( originalState );
-	        	getGrid().invalidate();
 	        	return true;
 	        }
 	        default:
 	            return super.onOptionsItemSelected( item );
+
 	    }	    
 	}
 
