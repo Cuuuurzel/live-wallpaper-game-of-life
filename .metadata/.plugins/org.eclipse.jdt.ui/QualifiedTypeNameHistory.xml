@@ -48,4 +48,5 @@
 <fullyQualifiedTypeName name="com.cuuuurzel.gollivewallpaper.GameOfLife"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="android.view.MenuItem"/>
 </qualifiedTypeNameHistroy>
