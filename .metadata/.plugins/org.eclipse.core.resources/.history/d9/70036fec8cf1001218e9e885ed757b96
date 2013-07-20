@@ -78,8 +78,12 @@ public class GolSwitcherGrid extends View {
 	}
 	
 	@Override
-	public void draw( Canvas cnv ) {
-		float d = cnv.getWidth() / cols();
+	public void draw( Canvas cnv ) {			
+		float w = cnv.getWidth();
+		float h = cnv.getHeight();			
+		
+		float d = Math.max( h/gameState.grid.length, 
+				            w/gameState.grid[0].length );
 
 		cnv.drawColor( Color.BLACK );
 		
