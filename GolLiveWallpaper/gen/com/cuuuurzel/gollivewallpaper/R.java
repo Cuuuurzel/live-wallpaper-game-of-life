@@ -32,11 +32,12 @@ public final class R {
         public static final int btnDecRows=0x7f0a0002;
         public static final int btnIncCols=0x7f0a0001;
         public static final int btnIncRows=0x7f0a0000;
+        public static final int btnSaveAndExit=0x7f0a0008;
         public static final int btnSetPopulation=0x7f0a0007;
-        public static final int button1=0x7f0a0008;
-        public static final int grid=0x7f0a0009;
-        public static final int menu_clear=0x7f0a000a;
-        public static final int menu_restore=0x7f0a000b;
+        public static final int btnSetWallpaper=0x7f0a0009;
+        public static final int grid=0x7f0a000a;
+        public static final int menu_clear=0x7f0a000b;
+        public static final int menu_restore=0x7f0a000c;
         public static final int seekBar1=0x7f0a0006;
         public static final int textView1=0x7f0a0005;
         public static final int txvGridSize=0x7f0a0004;
@@ -65,6 +66,7 @@ public final class R {
         public static final int more_rows=0x7f06000a;
         public static final int population=0x7f06000f;
         public static final int save=0x7f060010;
+        public static final int setw=0x7f060011;
         public static final int wallpaper_gol=0x7f060001;
     }
     public static final class style {

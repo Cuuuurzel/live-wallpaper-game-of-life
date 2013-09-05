@@ -83,14 +83,14 @@
         android:text="@string/population" />
 
     <Button
-        android:id="@+id/btnSaveAndExit"
+        android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="saveAndExit"
         android:text="@string/save" />
 
     <Button
-        android:id="@+id/btnSetWallpaper"
+        android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="setWallpaper"

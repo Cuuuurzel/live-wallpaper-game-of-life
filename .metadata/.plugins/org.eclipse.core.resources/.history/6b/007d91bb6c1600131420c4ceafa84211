@@ -18,7 +18,6 @@
 	<string name="fps">FPS ( 1 - 15 )</string>
 	<string name="population">Imposta la popolazione iniziale</string>
 	<string name="save">Salva ed esci</string>
-	<string name="setw">Imposta come sfondo</string>
 	
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
