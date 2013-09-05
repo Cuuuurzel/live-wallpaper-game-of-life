@@ -50,14 +50,21 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f060000;
+        public static final int fps=0x7f06000e;
         public static final int gol_settings=0x7f060002;
         public static final int gol_settings_grid=0x7f060005;
         public static final int gol_settings_grid_summary=0x7f060007;
         public static final int gol_settings_grid_title=0x7f060006;
         public static final int gol_settings_summary=0x7f060004;
         public static final int gol_settings_title=0x7f060003;
+        public static final int less_cols=0x7f06000d;
+        public static final int less_rows=0x7f06000c;
         public static final int menu_clear=0x7f060008;
         public static final int menu_restore=0x7f060009;
+        public static final int more_cols=0x7f06000b;
+        public static final int more_rows=0x7f06000a;
+        public static final int population=0x7f06000f;
+        public static final int save=0x7f060010;
         public static final int wallpaper_gol=0x7f060001;
     }
     public static final class style {

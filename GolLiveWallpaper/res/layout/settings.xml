@@ -7,15 +7,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="0.88" >
 
         <Button
             android:id="@+id/btnIncRows"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="More Rows"
-            android:onClick="incRows" />
+            android:onClick="incRows"
+            android:text="@string/more_rows" />
 
         <Button
             android:id="@+id/btnIncCols"
@@ -23,8 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/btnDecRows"
-            android:text="More Columns"
-            android:onClick="incCols" />
+            android:onClick="incCols"
+            android:text="@string/more_cols" />
 
         <Button
             android:id="@+id/btnDecRows"
@@ -32,8 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:text="Less Rows"
-            android:onClick="decRows" />
+            android:onClick="decRows"
+            android:text="@string/less_rows" />
 
         <Button
             android:id="@+id/btnDecCols"
@@ -41,8 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/btnDecRows"
-            android:text="Less Columns"
-            android:onClick="decCols" />
+            android:onClick="decCols"
+            android:text="@string/less_cols" />
 
         <TextView
             android:id="@+id/txvGridSize"
@@ -51,16 +51,16 @@
             android:layout_below="@+id/btnIncCols"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:text="Large Text"
+            android:text=""
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:text="  FPS ( 1 - 15 )    "
+            android:layout_centerHorizontal="true"
+            android:text="@string/fps"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/white" />
 
@@ -80,13 +80,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="showGrid"
-        android:text="Set initial population" />
+        android:text="@string/population" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save and exit"
-        android:onClick="saveAndExit" />
+        android:onClick="saveAndExit"
+        android:text="@string/save" />
 
 </LinearLayout>

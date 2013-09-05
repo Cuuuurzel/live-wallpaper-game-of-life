@@ -1,9 +1,0 @@
-package com.cuuuurzel.gollivewallpaper;
-
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
-
-public class GolSettings extends PreferenceFragment {
-	
-}
