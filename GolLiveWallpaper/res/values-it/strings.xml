@@ -19,6 +19,10 @@
 	<string name="population">Imposta la popolazione iniziale</string>
 	<string name="save">Salva ed esci</string>
 	<string name="setw">Imposta come sfondo</string>
+	<string name="share">Condividi</string>
+	<string name="more_apps">Altre app</string>
+	<string name="share_msg">Game of life, come live wallpaper :</string>
+	<string name="play_store_link">https://play.google.com/store/apps/details?id=com.cuuuurzel.gollivewallpaper</string>
 	
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>

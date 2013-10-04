@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Life Wallpaper</string>
+    <string name="wallpaper_gol">Game of Life</string>
+    <string name="gol_settings">Life Settings</string>
+    <string name="gol_settings_title">Life Settings</string>
+    <string name="gol_settings_summary">Set grid size and FPS.</string>
+    <string name="gol_settings_grid">Life Settings</string>
+    <string name="gol_settings_grid_title">Initial Population</string>
+    <string name="gol_settings_grid_summary">Choose cell configuration for the simulation.</string>
+	<string name="menu_clear">Clear</string>
+	<string name="menu_restore">Restore</string>
+	<string name="more_rows">More rows</string>
+	<string name="more_cols">More columns</string>
+	<string name="less_rows">Less rows</string>
+	<string name="less_cols">Less columns</string>
+	<string name="fps">FPS ( 1 - 15 )</string>
+	<string name="population">Set initial population</string>
+	<string name="save">Save and exit</string>
+	<string name="setw">Set as background</string>
+	<string name="more_apps">More apps</string>
+	<string name="share_msg">Game of life, as live wallpaper :</string>
+	<string name="play_store_link">https://play.google.com/store/apps/details?id=com.cuuuurzel.gollivewallpaper</string>
+	
+	
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>

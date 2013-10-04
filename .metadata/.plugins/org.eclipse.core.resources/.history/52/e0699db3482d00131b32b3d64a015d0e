@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnIncRows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="incRows"
+            android:text="@string/more_rows" />
+
+        <Button
+            android:id="@+id/btnIncCols"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/btnDecRows"
+            android:onClick="incCols"
+            android:text="@string/more_cols" />
+
+        <Button
+            android:id="@+id/btnDecRows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:onClick="decRows"
+            android:text="@string/less_rows" />
+
+        <Button
+            android:id="@+id/btnDecCols"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btnDecRows"
+            android:onClick="decCols"
+            android:text="@string/less_cols" />
+    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txvGridSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/fps"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
+
+        <SeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:max="14"
+            android:progress="0" />
+
+    <Button
+        android:id="@+id/btnSetPopulation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showGrid"
+        android:text="@string/population" />
+
+    <Button
+        android:id="@+id/btnSaveAndExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="saveAndExit"
+        android:text="@string/save" />
+
+    <Button
+        android:id="@+id/btnSetWallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="setWallpaper"
+        android:text="@string/setw" />
+
+    <Button
+        android:id="@+id/btnShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="share"
+        android:text="@string/share" />
+
+    <Button
+        android:id="@+id/btnMyApps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showMyApps"
+        android:text="@string/more_apps" />
+
+</LinearLayout>

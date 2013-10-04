@@ -54,12 +54,13 @@
             android:text=""
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    </RelativeLayout>
+
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:text="@string/fps"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/white" />
@@ -68,12 +69,8 @@
             android:id="@+id/seekBar1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView1"
             android:max="14"
             android:progress="0" />
-
-    </RelativeLayout>
 
     <Button
         android:id="@+id/btnSetPopulation"
@@ -95,5 +92,19 @@
         android:layout_height="wrap_content"
         android:onClick="setWallpaper"
         android:text="@string/setw" />
+
+    <Button
+        android:id="@+id/btnShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="share"
+        android:text="@string/share" />
+
+    <Button
+        android:id="@+id/btnMyApps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showMyApps"
+        android:text="@string/more_apps" />
 
 </LinearLayout>

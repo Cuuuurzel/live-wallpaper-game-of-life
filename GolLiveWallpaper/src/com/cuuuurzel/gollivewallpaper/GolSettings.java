@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.WallpaperManager;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -27,6 +29,27 @@ public class GolSettings extends Activity {
 		initGridState();
 		setupForm(false);
 	}
+
+	public void showMyApps(View v) {
+		try {
+			startActivity(new Intent(Intent.ACTION_VIEW,
+					Uri.parse("market://developer?id=Cuuuurzel")));
+		} catch (ActivityNotFoundException anfe) {
+			startActivity(new Intent(
+					Intent.ACTION_VIEW,
+					Uri.parse("http://play.google.com/store/apps/developer?id=Cuuuurzel")));
+		}
+	}
+
+	public void share(View v) {
+		String message = getResources().getString(R.string.share_msg);
+		String link = getResources().getString(R.string.play_store_link);
+		Intent share = new Intent(Intent.ACTION_SEND);
+		share.putExtra(Intent.EXTRA_TEXT, message + "\n" + link);
+		share.setType("text/plain");
+		startActivity(Intent.createChooser(share,
+				"Title of the dialog the system will open"));
+	}	
 	
 	public void setWallpaper( View v ) {
 		Intent intent = new Intent();

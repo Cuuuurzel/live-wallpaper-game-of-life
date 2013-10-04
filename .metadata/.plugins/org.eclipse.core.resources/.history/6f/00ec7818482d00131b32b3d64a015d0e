@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Life Wallpaper</string>
+    <string name="wallpaper_gol">Game of Life</string>
+    <string name="gol_settings">Life Impostazioni</string>
+    <string name="gol_settings_title">Life Impostazioni</string>
+    <string name="gol_settings_summary">Imposta dimensioni griglia, popolazione e FPS.</string>
+    <string name="gol_settings_grid">Life Impostazioni</string>
+    <string name="gol_settings_grid_title">Popolazione iniziale</string>
+    <string name="gol_settings_grid_summary">Imposta la popolazione iniziale.</string>
+	<string name="menu_clear">Pulisci</string>
+	<string name="menu_restore">Ricarica</string>
+	<string name="more_rows">Più righe</string>
+	<string name="more_cols">Più colonne</string>
+	<string name="less_rows">Meno righe</string>
+	<string name="less_cols">Meno colonne</string>
+	<string name="fps">FPS ( 1 - 15 )</string>
+	<string name="population">Imposta la popolazione iniziale</string>
+	<string name="save">Salva ed esci</string>
+	<string name="setw">Imposta come sfondo</string>
+	
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>
